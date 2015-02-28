@@ -1,0 +1,14 @@
+irc:
+  server: 'foo.example.com'
+  channels:
+    - "#foo"
+  nick: botname
+
+twitter:
+  consumer_key: fooConsumerKey
+  consumer_secret: fooSecretConsumerKey
+  access_token: fooAccesToken
+  access_token_secret: fooSecretAcessToken
+  follow:
+    - follow1
+    - follow2
