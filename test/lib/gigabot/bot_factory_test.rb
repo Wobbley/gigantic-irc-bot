@@ -62,13 +62,14 @@ module Gigabot
               Commands::FAQ,
               Commands::Teamspeak,
               Commands::Help,
-              Commands::Bug
+              Commands::Bug,
+              Commands::Reddit
           ],
           bot.config.plugins.plugins
       )
     end
 
-    def test_twitch_is_correctly_configured
+    def test_twitter_is_correctly_configured
       bot = BotFactory.from_config(Gigabot::Utils::Configuration.config)
       assert_equal(
           {
@@ -79,6 +80,17 @@ module Gigabot
               follow: %w(follow1 follow2)
           }, bot.config.plugins.options[Commands::Twitter]
       )
+    end
+
+    def test_reddit_is_correctly_configured
+      bot = BotFactory.from_config(Gigabot::Utils::Configuration.config)
+      assert_equal(
+          {
+              client_id: 'test_id',
+              client_secret: 'test_secret',
+              user_agent: 'test_agent',
+              following: %w(test_follow1 test_follow2)
+          }, bot.config.plugins.options[Commands::Reddit])
     end
   end
 end

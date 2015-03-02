@@ -5,6 +5,8 @@ require File.dirname(__FILE__) + '/commands/twitter'
 require File.dirname(__FILE__) + '/commands/faq'
 require File.dirname(__FILE__) + '/commands/teamspeak'
 require File.dirname(__FILE__) + '/commands/help'
+require File.dirname(__FILE__) + '/commands/bug'
+require File.dirname(__FILE__) + '/commands/reddit'
 
 module Gigabot
   class BotFactory
@@ -23,7 +25,8 @@ module Gigabot
               Commands::FAQ,
               Commands::Teamspeak,
               Commands::Help,
-              Commands::Bug
+              Commands::Bug,
+              Commands::Reddit
           ]
 
           c.plugins.options[Commands::Twitter] = {
@@ -32,6 +35,13 @@ module Gigabot
               access_token: configuration.twitter.access_token,
               access_token_secret: configuration.twitter.access_token_secret,
               follow: configuration.twitter.follow,
+          }
+
+          c.plugins.options[Commands::Reddit] = {
+              client_id: configuration.reddit.client_id,
+              client_secret: configuration.reddit.client_secret,
+              user_agent: configuration.reddit.user_agent,
+              following: configuration.reddit.following
           }
 
         end

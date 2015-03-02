@@ -12,3 +12,10 @@ twitter:
   follow:
     - follow1
     - follow2
+
+reddit:
+  client_id: fooId
+  client_secret: fooSecret
+  user_agent: fooAgent
+  following:
+    - follow1

@@ -13,3 +13,11 @@ twitter:
   follow:
     - follow1
     - follow2
+
+reddit:
+  client_id: test_id
+  client_secret: test_secret
+  user_agent: test_agent
+  following:
+    - test_follow1
+    - test_follow2
