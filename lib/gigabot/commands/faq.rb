@@ -16,7 +16,7 @@ module Gigabot
               description: 'Links the official Gigantic Alpha FAQ'
 
 
-      URL = 'http://www.gogigantic.com/explore/alpha_faq'
+      URL = 'http://www.gogigantic.com/explore/faq'
 
       def faq(m, username=nil)
         if username.nil?
