@@ -77,7 +77,7 @@ module Gigabot
               consumer_secret: 'test_key_secret',
               access_token: 'test_access_token',
               access_token_secret: 'test_access_token_secret',
-              follow: %w(follow1 follow2)
+              follow: %w(twitter_follow1 twitter_follow2)
           }, bot.config.plugins.options[Commands::Twitter]
       )
     end
@@ -89,7 +89,7 @@ module Gigabot
               client_id: 'test_id',
               client_secret: 'test_secret',
               user_agent: 'test_agent',
-              following: %w(test_follow1 test_follow2)
+              following: %w(reddit_follow1 reddit_follow2)
           }, bot.config.plugins.options[Commands::Reddit])
     end
   end

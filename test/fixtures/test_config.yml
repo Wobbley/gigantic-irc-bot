@@ -11,13 +11,13 @@ twitter:
   access_token: test_access_token
   access_token_secret: test_access_token_secret
   follow:
-    - follow1
-    - follow2
+    - twitter_follow1
+    - twitter_follow2
 
 reddit:
   client_id: test_id
   client_secret: test_secret
   user_agent: test_agent
   following:
-    - test_follow1
-    - test_follow2
+    - reddit_follow1
+    - reddit_follow2
