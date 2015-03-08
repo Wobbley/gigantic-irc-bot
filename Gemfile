@@ -11,4 +11,4 @@ gem 'shorturl'
 
 gem 'rake', group: :test
 gem 'minitest', group: :test
-gem 'simplecov', group: :test
+gem 'mocha', group: :test
