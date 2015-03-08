@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'cinch'
 require 'cinch/commands'
+
 require 'twitter'
 require 'shorturl'
 
@@ -22,16 +23,21 @@ module Gigabot
       timer 60, method: :twitter_update
       def twitter_update
         @follow.each do |user|
-          new_tweet = @client.user_timeline(user, options = {exclude_replies: true}).first
+          new_tweet = get_latest_tweet(user)
           if @latest_tweets[user] != new_tweet
-            short_url = ShortURL.shorten("https://twitter.com/#{user}/status/#{new_tweet.id}")
-            reply = Format(:bold, "<#{user}> ") + "#{new_tweet.full_text} [#{short_url}]"
+            url = create_url(user, new_tweet)
+            reply = Format(:bold, "<#{user}> ") + "#{new_tweet.full_text} [#{url}]"
             reply = reply.gsub(/\n/,' ')
 
-            @channels.each {|channel| Channel(channel).send(reply)}
+            send_message_to_channels(reply)
             @latest_tweets[user] = new_tweet
           end
         end
+      end
+
+      private
+      def send_message_to_channels(message)
+        @channels.each {|channel| Channel(channel).send(message)}
       end
 
 
@@ -45,10 +51,21 @@ module Gigabot
         end
       end
 
+      private
+      def get_latest_tweet(user)
+        @client.user_timeline(user, options = {exclude_replies: true, include_rts: false, trim_user: true}).first
+      end
+
+      private
       def set_initial_tweets
          @follow.each do |user|
-           @latest_tweets[user] = @client.user_timeline(user, options = {exclude_replies: true}).first
+           @latest_tweets[user] = get_latest_tweet(user)
          end
+      end
+      
+      private
+      def create_url(user, new_tweet)
+        ShortURL.shorten("https://twitter.com/#{user}/status/#{new_tweet.id}")
       end
     end
   end
