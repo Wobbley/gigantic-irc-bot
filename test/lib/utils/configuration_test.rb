@@ -17,13 +17,13 @@ module Gigabot
         assert_equal 'test_key_secret', Configuration.config.twitter.consumer_secret
         assert_equal 'test_access_token', Configuration.config.twitter.access_token
         assert_equal 'test_access_token_secret', Configuration.config.twitter.access_token_secret
-        assert_equal %w(follow1 follow2), Configuration.config.twitter.follow
+        assert_equal %w(twitter_follow1 twitter_follow2), Configuration.config.twitter.follow
 
         #Reddit plugin
         assert_equal 'test_id', Configuration.config.reddit.client_id
         assert_equal 'test_secret', Configuration.config.reddit.client_secret
         assert_equal 'test_agent', Configuration.config.reddit.user_agent
-        assert_equal %w(test_follow1 test_follow2), Configuration.config.reddit.following
+        assert_equal %w(reddit_follow1 reddit_follow2), Configuration.config.reddit.following
       end
     end
   end
