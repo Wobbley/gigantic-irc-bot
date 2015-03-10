@@ -63,7 +63,8 @@ module Gigabot
               Commands::Teamspeak,
               Commands::Help,
               Commands::Bug,
-              Commands::Reddit
+              Commands::Reddit,
+              Commands::Rules
           ],
           bot.config.plugins.plugins
       )

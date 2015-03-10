@@ -1,5 +1,6 @@
 require 'rubygems'
 require 'cinch'
+require 'cinch/plugins/identify'
 
 require File.dirname(__FILE__) + '/commands/twitter'
 require File.dirname(__FILE__) + '/commands/faq'
@@ -7,6 +8,7 @@ require File.dirname(__FILE__) + '/commands/teamspeak'
 require File.dirname(__FILE__) + '/commands/help'
 require File.dirname(__FILE__) + '/commands/bug'
 require File.dirname(__FILE__) + '/commands/reddit'
+require File.dirname(__FILE__) + '/commands/rules'
 
 module Gigabot
   class BotFactory
@@ -26,8 +28,18 @@ module Gigabot
               Commands::Teamspeak,
               Commands::Help,
               Commands::Bug,
-              Commands::Reddit
+              Commands::Reddit,
+              Commands::Rules
           ]
+
+          unless configuration.irc.password.nil?
+            c.plugins.plugins.push Cinch::Plugins::Identify
+            c.plugins.options[Cinch::Plugins::Identify] = {
+                username: configuration.irc.nick,
+                password: configuration.irc.password,
+                type: :nickserv,
+            }
+          end
 
           c.plugins.options[Commands::Twitter] = {
               consumer_key: configuration.twitter.consumer_key,
