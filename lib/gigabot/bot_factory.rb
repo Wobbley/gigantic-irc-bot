@@ -38,6 +38,7 @@ module Gigabot
                 username: configuration.irc.nick,
                 password: configuration.irc.password,
                 type: :nickserv,
+                service_name: 'NickServ@services.globalgamers.net'
             }
           end
 
