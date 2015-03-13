@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'cinch'
 require 'cinch/plugins/identify'
+require 'cinch/plugins/last_seen'
 
 require File.dirname(__FILE__) + '/commands/twitter'
 require File.dirname(__FILE__) + '/commands/faq'
@@ -29,7 +30,8 @@ module Gigabot
               Commands::Help,
               Commands::Bug,
               Commands::Reddit,
-              Commands::Rules
+              Commands::Rules,
+              Cinch::Plugins::LastSeen,
           ]
 
           unless configuration.irc.password.nil?

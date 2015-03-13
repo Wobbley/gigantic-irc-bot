@@ -9,6 +9,8 @@ GEM
       cinch (~> 2.0)
     cinch-identify (1.7.0)
       cinch (~> 2.0)
+    cinch-last_seen (0.0.2)
+      cinch (~> 2.0)
     equalizer (0.0.9)
     faraday (0.9.1)
       multipart-post (>= 1.2, < 3)
@@ -58,6 +60,7 @@ DEPENDENCIES
   cinch
   cinch-commands
   cinch-identify
+  cinch-last_seen
   minitest
   mocha
   rake

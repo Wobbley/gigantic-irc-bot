@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'cinch'
 gem 'cinch-commands'
 gem 'cinch-identify'
+gem 'cinch-last_seen'
 
 gem 'app_conf'
 gem 'twitter'
