@@ -38,7 +38,7 @@ module Gigabot
       def format_by_instance(new_activity, user)
         if new_activity.instance_of? Redd::Objects::Comment
           short_url = ShortURL.shorten(new_activity.link_url)
-          Format(:bold, "<#{user}> ") + "commented on  '#{new_activity.link_title}' [#{short_url}])"
+          return Format(:bold, "<#{user}> ") + "commented on  '#{new_activity.link_title}' [#{short_url}])"
         end
         if new_activity.instance_of? Redd::Objects::Submission
           short_url = ShortURL.shorten(URL + new_activity.permalink)
