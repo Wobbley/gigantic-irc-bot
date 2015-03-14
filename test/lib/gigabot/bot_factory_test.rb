@@ -65,7 +65,9 @@ module Gigabot
               Commands::Bug,
               Commands::Reddit,
               Commands::Rules,
-              Cinch::Plugins::LastSeen
+              Commands::Streams,
+              Cinch::Plugins::LastSeen,
+              Cinch::Memo
           ],
           bot.config.plugins.plugins
       )

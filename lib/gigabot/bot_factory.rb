@@ -10,6 +10,9 @@ require File.dirname(__FILE__) + '/commands/help'
 require File.dirname(__FILE__) + '/commands/bug'
 require File.dirname(__FILE__) + '/commands/reddit'
 require File.dirname(__FILE__) + '/commands/rules'
+require File.dirname(__FILE__) + '/commands/streams'
+
+require File.dirname(__FILE__) + '/../../lib/cinch/plugins/memo'
 
 module Gigabot
   class BotFactory
@@ -31,7 +34,9 @@ module Gigabot
               Commands::Bug,
               Commands::Reddit,
               Commands::Rules,
+              Commands::Streams,
               Cinch::Plugins::LastSeen,
+              Cinch::Memo
           ]
 
           unless configuration.irc.password.nil?
@@ -57,6 +62,14 @@ module Gigabot
               client_secret: configuration.reddit.client_secret,
               user_agent: configuration.reddit.user_agent,
               following: configuration.reddit.following
+          }
+
+          c.plugins.options[Commands::Streams] = {
+              streamers: configuration.twitch.streamers
+          }
+
+          c.plugins.options[Cinch::Memo] = {
+              :max_lifetime => 100
           }
 
         end
