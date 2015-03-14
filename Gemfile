@@ -9,6 +9,7 @@ gem 'app_conf'
 gem 'twitter'
 gem 'redd'
 gem 'shorturl'
+gem 'kappa'
 
 gem 'rake', group: :test
 gem 'minitest', group: :test
