@@ -21,3 +21,9 @@ reddit:
   following:
     - reddit_follow1
     - reddit_follow2
+
+twitch:
+  streamers:
+    - twitch_follow1
+    - twitch_follow2
+
