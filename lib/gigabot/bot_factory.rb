@@ -2,6 +2,9 @@ require 'rubygems'
 require 'cinch'
 require 'cinch/plugins/identify'
 require 'cinch/plugins/last_seen'
+require 'cinch/plugins/links-titles'
+
+require 'fileutils'
 
 require File.dirname(__FILE__) + '/commands/twitter'
 require File.dirname(__FILE__) + '/commands/faq'
@@ -36,7 +39,8 @@ module Gigabot
               Commands::Rules,
               Commands::Streams,
               Cinch::Plugins::LastSeen,
-              Cinch::Memo
+              Cinch::Memo,
+              Cinch::Plugins::LinksTitles
           ]
 
           unless configuration.irc.password.nil?
@@ -70,6 +74,11 @@ module Gigabot
 
           c.plugins.options[Cinch::Memo] = {
               :max_lifetime => 100
+          }
+
+          c.plugins.options[Cinch::Plugins::LinksTitles] = {
+              :filename  => 'links-titles.yaml',
+              :whitelist => %w(youtube imgur)
           }
 
         end

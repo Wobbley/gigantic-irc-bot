@@ -67,7 +67,8 @@ module Gigabot
               Commands::Rules,
               Commands::Streams,
               Cinch::Plugins::LastSeen,
-              Cinch::Memo
+              Cinch::Memo,
+              Cinch::Plugins::LinksTitles
           ],
           bot.config.plugins.plugins
       )
@@ -95,7 +96,26 @@ module Gigabot
               user_agent: 'test_agent',
               following: %w(reddit_follow1 reddit_follow2)
           }, bot.config.plugins.options[Commands::Reddit])
+
+    end
+
+    def test_streams_is_correctly_configured
+      bot = BotFactory.from_config(Gigabot::Utils::Configuration.config)
+      assert_equal({streamers: %w(twitch_follow1 twitch_follow2)}, bot.config.plugins.options[Commands::Streams])
+    end
+
+    def test_memo_is_correctly_configured
+      bot = BotFactory.from_config(Gigabot::Utils::Configuration.config)
+      assert_equal({max_lifetime: 100}, bot.config.plugins.options[Cinch::Memo])
+    end
+
+    def test_links_is_correctly_configured
+      bot = BotFactory.from_config(Gigabot::Utils::Configuration.config)
+      assert_equal(
+          {
+              filename: 'links-titles.yaml',
+              whitelist: %w(youtube imgur)
+          }, bot.config.plugins.options[Cinch::Plugins::LinksTitles])
     end
   end
 end
-
