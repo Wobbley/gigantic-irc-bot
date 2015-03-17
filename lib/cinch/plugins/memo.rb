@@ -116,7 +116,7 @@ cinch memo for <nick>: <message>
         @private_mutex.synchronize do
           while memo = @private_memos[user.nick].pop # Single = intended
             bot.loggers.info("Delivering a private memo from #{memo.sender.nick} to #{user.nick}")
-            user.msg("Memo from #{memo.sender.nick}: #{memo.message}")
+            user.send("Memo from #{memo.sender.nick}: #{memo.message}")
           end
         end
 
