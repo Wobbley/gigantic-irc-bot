@@ -11,6 +11,7 @@ gem 'twitter'
 gem 'redd'
 gem 'shorturl'
 gem 'kappa'
+gem 'rufus-scheduler'
 
 gem 'rake', group: :test
 gem 'minitest', group: :test

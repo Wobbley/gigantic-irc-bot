@@ -16,6 +16,7 @@ require File.dirname(__FILE__) + '/commands/rules'
 require File.dirname(__FILE__) + '/commands/streams'
 
 require File.dirname(__FILE__) + '/../../lib/cinch/plugins/memo'
+require File.dirname(__FILE__) + '/../../lib/cinch/plugins/reminder'
 
 module Gigabot
   class BotFactory
@@ -40,7 +41,8 @@ module Gigabot
               Commands::Streams,
               Cinch::Plugins::LastSeen,
               Cinch::Memo,
-              Cinch::Plugins::LinksTitles
+              Cinch::Plugins::LinksTitles,
+              Reminder
           ]
 
           unless configuration.irc.password.nil?
