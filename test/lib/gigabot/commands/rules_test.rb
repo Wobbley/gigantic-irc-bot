@@ -25,8 +25,8 @@ module Gigabot
         bot.loggers.level = :fatal
 
         message = OpenStruct.new
-        message.target = MiniTest::Mock.new
-        message.target.expect :notify, nil, ["Behave and check out the rules: #{Rules::URL}"]
+        message.user = MiniTest::Mock.new
+        message.user.expect :notify, nil, ["Behave and check out the rules: #{Rules::URL}"]
       end
     end
   end
