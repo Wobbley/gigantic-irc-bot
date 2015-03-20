@@ -17,11 +17,11 @@ module Gigabot
       listen_to :join, :method => :notify_rules
 
       def rules(m)
-        m.target.send "Behave and check out the rules: #{URL}"
+        m.user.send "Behave and check out the rules: #{URL}"
       end
 
       def notify_rules(m)
-        m.target.notice("Behave and check out the rules: #{URL}")
+        m.user.notice("Behave and check out the rules: #{URL}")
       end
     end
   end
