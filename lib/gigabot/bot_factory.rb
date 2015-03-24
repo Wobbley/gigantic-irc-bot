@@ -16,6 +16,7 @@ require File.dirname(__FILE__) + '/commands/rules'
 require File.dirname(__FILE__) + '/commands/streams'
 
 require File.dirname(__FILE__) + '/../../lib/cinch/plugins/memo'
+require File.dirname(__FILE__) + '/../../lib/cinch/plugins/links-titles'
 
 module Gigabot
   class BotFactory
