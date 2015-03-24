@@ -14,7 +14,7 @@ module Gigabot
       command :help, {},
               summary: 'Lists available commands',
               description: 'If no COMMAND argument is given, then all commands will be listed.',
-              aliases: [:commands]
+              aliases: [:commands, :assist]
 
       # override the method to send help to the user only
       def help(m,command=nil)
