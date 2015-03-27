@@ -17,6 +17,8 @@ module Gigabot
               summary: 'Links if online and streaming Gigantic',
               description: 'Links if online and streaming Gigantic'
 
+      listen_to :channel
+
       def initialize(bot)
         super(bot)
         Twitch.configure { |config|  config.client_id = 'gigabot-v1' }
@@ -24,7 +26,6 @@ module Gigabot
         @streamers = config[:streamers]
         @currently_live = Hash.new
         initial_stream_status
-
       end
 
       timer 60, method: :twitch_update
@@ -52,6 +53,21 @@ module Gigabot
           return m.target.send("User #{username} is offline or not streaming Gigantic") if stream.nil?
 
           m.target.send("#{stream.channel.display_name} is streaming Gigantic: #{stream.url}")
+        end
+      end
+
+      def listen(m)
+        stream_url = m.message.scan(/www.twitch\.tv\/([^\s]+)/)
+        if stream_url.empty?
+          return
+        end
+        user = Twitch.users.get(stream_url[0][0])
+        channel = user.channel
+
+        if user.streaming?
+          m.target.send(Format(:bold, "<#{user.display_name}>") + " is streaming #{channel.game_name} with the title '#{channel.status}'")
+        else
+          m.target.send(Format(:bold, "<#{user.display_name}>") + ' is not streaming')
         end
       end
 
