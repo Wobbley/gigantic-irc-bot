@@ -57,7 +57,7 @@ module Gigabot
       end
 
       def listen(m)
-        stream_url = m.message.scan(/www.twitch\.tv\/([^\s]+)/)
+        stream_url = m.message.scan(/www.twitch\.tv\/([A-z_0-9]+)/)
         if stream_url.empty?
           return
         end
@@ -65,7 +65,7 @@ module Gigabot
         channel = user.channel
 
         if user.streaming?
-          m.target.send(Format(:bold, "<#{user.display_name}>") + " is streaming #{channel.game_name} with the title '#{channel.status}'")
+          m.target.send(Format(:bold, "<#{user.display_name}>") + " is streaming #{channel.game_name} '#{channel.status}'")
         else
           m.target.send(Format(:bold, "<#{user.display_name}>") + ' is not streaming')
         end
