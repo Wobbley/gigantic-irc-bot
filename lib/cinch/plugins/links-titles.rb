@@ -5,7 +5,7 @@ module Cinch
 
       def post_title(m, link)
         return if link.title.nil?
-        m.reply "^ #{link.title} ^ "
+        m.reply "#{link.title}"
       end
     end
   end
