@@ -8,12 +8,12 @@ module Gigabot
       include Cinch::Commands
 
       command :help, {command: :string},
-              summary: 'Displays help information for the COMMAND',
-              description: 'Finds the COMMAND and prints the usage and description for the COMMAND.'
+              summary: 'Displays help information for the :command',
+              description: 'Finds the :command and prints the usage and description for the :command.'
 
       command :help, {},
               summary: 'Lists available commands',
-              description: 'If no COMMAND argument is given, then all commands will be listed.',
+              description: 'If no :command argument is given, then all commands will be listed.',
               aliases: [:commands, :assist]
 
       # override the method to send help to the user only

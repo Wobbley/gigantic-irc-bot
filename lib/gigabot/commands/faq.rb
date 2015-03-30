@@ -9,11 +9,11 @@ module Gigabot
       include Cinch::Commands
 
       command :faq, {},
-              summary: 'Links the official Gigantic Alpha FAQ',
-              description: 'Links the official Gigantic Alpha FAQ'
+              summary: 'Links the official Gigantic FAQ',
+              description: 'Links the official Gigantic FAQ'
       command :faq, { username: :string },
-              summary: 'Links the official Gigantic Alpha FAQ and highlights user',
-              description: 'Links the official Gigantic Alpha FAQ'
+              summary: 'Links the official Gigantic FAQ and highlights user',
+              description: 'Links the official Gigantic FAQ'
 
 
       URL = 'http://www.gogigantic.com/explore/faq'

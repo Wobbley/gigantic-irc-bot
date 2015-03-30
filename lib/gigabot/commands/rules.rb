@@ -11,8 +11,8 @@ module Gigabot
       URL = 'http://ggunleashed.com/Gigantic/chat/'
 
       command :rules, {},
-              summary: 'Prints server info for the GGUnleashed Teamspeak, open for everyone',
-              description: 'Prints server for of the GGUnleashed Teamspeak, open for everyone'
+              summary: 'Links to the server rules for the IRC channel',
+              description: 'Links to the server rules for the IRC channel'
 
       listen_to :join, :method => :notify_rules
 
