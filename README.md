@@ -19,7 +19,6 @@
 * !bug - Submit an issue to the bot's tracker
 * !twitch - Links tracked Gigantic streams that are online
 * !twitch :username - Links the user if online and streaming gigantic
-
 * !seen :username - Retrieves last seen time and comment in the channel from the user
 * !memo for :username: :message - Leaves a message for the user when he comes online
 * !memo for :username: :message - Leaves a private message for the user only delivers when user authenticates(when messaging the bot)
