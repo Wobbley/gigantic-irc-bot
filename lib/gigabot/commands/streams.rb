@@ -57,7 +57,7 @@ module Gigabot
       end
 
       def listen(m)
-        stream_url = m.message.scan(/www.twitch\.tv\/([A-z_0-9]+)\/?$/)
+        stream_url = m.message.scan(/twitch\.tv\/([A-z_0-9]+)\/?$/)
         if stream_url.empty?
           return
         end
