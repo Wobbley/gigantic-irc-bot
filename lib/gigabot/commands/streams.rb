@@ -65,9 +65,9 @@ module Gigabot
         channel = user.channel
 
         if user.streaming?
-          m.target.send(Format(:bold, "<#{user.display_name}>") + " is streaming #{channel.game_name} '#{channel.status}'")
+          m.target.send(Format(:bold, "<#{user.display_name}>") + " is streaming #{channel.game_name} | #{channel.status}")
         else
-          m.target.send(Format(:bold, "<#{user.display_name}>") + " last played #{channel.game_name} '#{channel.status}'")
+          m.target.send(Format(:bold, "<#{user.display_name}>") + " last played #{channel.game_name} | #{channel.status}")
         end
       end
 
