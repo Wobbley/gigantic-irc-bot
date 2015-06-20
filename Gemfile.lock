@@ -24,6 +24,9 @@ GEM
       psych (~> 2.0, >= 2.0.4)
     cinch-toolbox (1.1.4)
       nokogiri (~> 1.6.0)
+    codeclimate-test-reporter (0.4.7)
+      simplecov (>= 0.7.1, < 1.0.0)
+    docile (1.1.5)
     equalizer (0.0.9)
     faraday (0.9.1)
       multipart-post (>= 1.2, < 3)
@@ -64,6 +67,11 @@ GEM
       multi_json (~> 1.10.1)
     shorturl (1.0.0)
     simple_oauth (0.3.1)
+    simplecov (0.10.0)
+      docile (~> 1.1.0)
+      json (~> 1.8)
+      simplecov-html (~> 0.10.0)
+    simplecov-html (0.10.0)
     thread_safe (0.3.4)
     time-lord (1.0.1)
     twitter (5.14.0)
@@ -89,6 +97,7 @@ DEPENDENCIES
   cinch-identify
   cinch-last_seen
   cinch-links-titles
+  codeclimate-test-reporter
   kappa
   minitest
   mocha

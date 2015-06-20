@@ -12,6 +12,9 @@ gem 'redd'
 gem 'shorturl'
 gem 'kappa'
 
-gem 'rake', group: :test
-gem 'minitest', group: :test
-gem 'mocha', group: :test
+group :test do
+  gem 'rake'
+  gem 'minitest'
+  gem 'mocha'
+  gem 'codeclimate-test-reporter', require: nil
+end
