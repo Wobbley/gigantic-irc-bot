@@ -1,6 +1,7 @@
 # Gigantic IRC Bot
 
 ## Code status
+<a href="https://codeclimate.com/github/Wobbley/gigantic-irc-bot"><img src="https://codeclimate.com/github/Wobbley/gigantic-irc-bot/badges/gpa.svg" /></a>
 
 ## Run
 * Get sources
